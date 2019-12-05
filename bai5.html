@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bai2</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+	<form class="container" onsubmit="return checkNT();">
+		<!-- <form class="container" onsubmit="return false;"> -->
+  		<div class="form-group">
+    		<label class="form-group">Nhập vào số a: </label>
+    		<input type="text" class="form-control" id="number1" >
+  	</div>
+  	<input type="submit" class="btn btn-primary" value="Kiểm tra">
+	</form>
+	
+</body>
+	<div id="result" style="color:green"></div>
+<script type="text/javascript">
+	function checkNT(){
+		var result='';
+		var obj_number1=document.getElementById('number1');
+		var number1=obj_number1.value;
+		if(number1 <2){
+			result= "so "+number1+" so nay khong la so nguyen to";
+		}
+		else{
+			var check=true;
+			for(var i=2;i<=Math.sqrt(number1);i++){
+				if(number1%i==0){
+					check=false;
+				}
+			}
+			if(check){
+				result="so "+number1+" la so nguyen to";
+			}
+			else{
+				result="so "+number1+" khong la so nguyen to";
+			}
+		}
+		document.getElementById('result').innerHTML=result;
+		return false;		
+	}
+</script>
+</html>
